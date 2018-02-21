@@ -30,7 +30,7 @@ class HouseDetailSpider:
         self.__base_house_url = "https://bj.lianjia.com/ershoufang/"
         self.__page_num = 30
         self.dbManager = DbManager()
-        self.multyNum = 5
+        self.multyNum = 2
         self.sleepTime = 0.5
         self.allValidIp = self.getAllValidIp()
 
