@@ -3,17 +3,13 @@
 import re
 import threading
 import traceback
-import datetime
 import requests
 import sys
-from bs4 import BeautifulSoup
-import MySQLdb
 import common.common as c
 from dao import db
 from dao.db_manager import DbManager
 import time
 import random
-import urllib
 import urllib2
 import json
 

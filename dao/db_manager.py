@@ -8,8 +8,6 @@ import traceback
 import MySQLdb
 from DBUtils.PooledDB import PooledDB
 # 自定义的配置文件，主要包含DB的一些基本配置
-import config
-
 
 # 数据库实例化类
 class DbManager:

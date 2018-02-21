@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import urllib
 import urllib2
 import re
-import time
 
 
 # obtain some ip and port for spider from a site,xicidaili.com.

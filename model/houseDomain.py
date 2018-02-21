@@ -5,7 +5,6 @@ from sqlalchemy import Column, Integer, String, DateTime, Index
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.sql import func
-from sqlalchemy.dialects.mysql import MEDIUMTEXT
 import config
 
 Base = declarative_base()
