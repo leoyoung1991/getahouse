@@ -82,6 +82,7 @@ CREATE TABLE `house_source` (
 `link_model_price` int(11) NOT NULL DEFAULT 0 COMMENT '链家计算模型价格',
 `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+`create_day` int(11) NOT NULL DEFAULT 0 COMMENT '创建日（yyMMdd）',
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='房源表';
 
@@ -103,6 +104,7 @@ CREATE TABLE `house_source_sale` (
 `room_book` varchar(30) NOT NULL DEFAULT '' COMMENT '房本备件',
 `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+`create_day` int(11) NOT NULL DEFAULT 0 COMMENT '创建日（yyMMdd）',
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='房源交易扩展表';
 
@@ -117,6 +119,7 @@ CREATE TABLE `house_source_watching` (
 `real_see_num` int(11) NOT NULL DEFAULT 0 COMMENT '带看数',
 `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+`create_day` int(11) NOT NULL DEFAULT 0 COMMENT '创建日（yyMMdd）',
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='房源关注表';
 

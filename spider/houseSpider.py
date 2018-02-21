@@ -24,7 +24,8 @@ class Community:
         self.__db = db.MySQLDB()
         if config != "../conf/house.conf":
             self.__db.setConfig()
-        self.__base_house_list_url = "https://bj.lianjia.com/ershoufang/ng1hu1nb1l2ba50ea90bp200ep320/"
+        # self.__base_house_list_url = "https://bj.lianjia.com/ershoufang/ng1hu1nb1l2ba50ea90bp200ep320/"
+        self.__base_house_list_url = "https://bj.lianjia.com/ershoufang/ng1hu1nb1/"
         self.__page_num = 30
         self.dbManager = DbManager()
 
@@ -48,6 +49,9 @@ class Community:
 
         total_page = int(num) / self.__page_num
 
+        now = datetime.datetime.now()
+        createDay = now.strftime("%Y%m%d")
+
         for i in range(1, total_page):
             page_com_url = com_url + 'pg' + str(i) + '/'
             try:
@@ -58,10 +62,10 @@ class Community:
                 values = []
                 watching_values = []
                 # 一次插入多条记录
-                sql = "insert into house_source (`link_house_source_id`,`url`,`title_discribe`,`community_name`,`link_community_id`,`home_plan_structure`,`building_size`,`orientation`,`decorate_situation`,`elevator`,`floor_situation`,`floor_total`,`building_year`,`building_type`,`address`,`publish_time`,`price`,`total_price`,`real_size`,`building_structure`,`fitment_situation`,`stairway_rate`,`heating_way`,`property_right`)" \
-                      "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                sql = "insert into house_source (`link_house_source_id`,`url`,`title_discribe`,`community_name`,`link_community_id`,`home_plan_structure`,`building_size`,`orientation`,`decorate_situation`,`elevator`,`floor_situation`,`floor_total`,`building_year`,`building_type`,`address`,`publish_time`,`price`,`total_price`,`real_size`,`building_structure`,`fitment_situation`,`stairway_rate`,`heating_way`,`property_right`,`createDay`)" \
+                      "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
-                watching_sql = "insert into house_source_watching (`link_house_source_id`, `watching_num`, `real_see_num`) values (%s,%s,%s) "
+                watching_sql = "insert into house_source_watching (`link_house_source_id`, `watching_num`, `real_see_num`,`createDay`) values (%s,%s,%s,%s) "
 
                 for play in lst.find_all('li', {'class': 'clear'}):
                     house_info = ''
@@ -207,9 +211,9 @@ class Community:
                                        home_plan_structure,building_size,orientation,decorate_situation,'',floor_situation,
                                        floor_total,building_year,'',address,real_publish_time,price,total_price,
                                        0,'','','',
-                                       '',0))
+                                       '',0, createDay))
 
-                        watching_values.append((link_house_source_id, watching_num, real_see_num))
+                        watching_values.append((link_house_source_id, watching_num, real_see_num, createDay))
 
 
                     except Exception as err:

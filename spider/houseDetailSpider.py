@@ -48,6 +48,10 @@ class HouseDetailSpider:
         num = 0
         base_info = ''
         transaction_info = ''
+
+        now = datetime.datetime.now()
+        createDay = now.strftime("%Y%m%d")
+
         try:
             s = BeautifulSoup(s.get(com_url, proxies=proxy).content, "lxml")
             info = s.find('div', {'class': 'introContent'})
@@ -102,14 +106,14 @@ class HouseDetailSpider:
 
             watching_sql = "insert into house_source_sale (`link_house_source_id`, `publish_time`, `last_transaction_time`," \
                            "`trading_ownership`, `house_usage`, `house_reburn_life`, " \
-                           "`property_rights_belong_to`, `mortgage_information`, `room_book` ) values (%s,%s,%s,%s,%s,%s,%s,%s,%s) "
+                           "`property_rights_belong_to`, `mortgage_information`, `room_book`, `createDay` ) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) "
 
 
 
             self.dbManager.execute(sql, (real_size, building_structure, fitment_situation, stairway_rate, heating_way,
                                          elevator, property_right, link_house_source_id))
             self.dbManager.execute(watching_sql, (link_house_source_id, publish_time, last_transaction_time, trading_ownership,
-                                                  house_usage, house_reburn_life, property_rights_belong_to, mortgage_information, room_book))
+                                                  house_usage, house_reburn_life, property_rights_belong_to, mortgage_information, room_book, createDay))
 
 
             print '房源id : %s 更新详细信息成功' % link_house_source_id
