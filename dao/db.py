@@ -33,10 +33,14 @@ class MySQLDB:
     def __init__(self, config='../conf/house.conf'):
         cf = ConfigParser.ConfigParser()
         cf.read(config)
-        host = cf.get("mysql", "host")
-        username = cf.get("mysql", "username")
-        password = cf.get("mysql", "password")
-        database = cf.get("mysql", "database")
+        host = 'localhost'
+        username = 'root'
+        password = 'root'
+        database = 'house'
+        # host = cf.get("mysql", "host")
+        # username = cf.get("mysql", "username")
+        # password = cf.get("mysql", "password")
+        # database = cf.get("mysql", "database")
         self.__db = MySQLdb.connect(host, username, password, database)
         self.__db.set_character_set('utf8')
 
