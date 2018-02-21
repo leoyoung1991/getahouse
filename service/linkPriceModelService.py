@@ -157,7 +157,8 @@ class HouseDetailSpider:
             t.join()
 
     def getAllValidIp(self):
-        f = open("../common/antiSpider/ipProxy/valid_proxy")
+        # f = open("../common/antiSpider/ipProxy/valid_proxy")
+        f = open("/home/work/getahouse/common/antiSpider/ipProxy/valid_proxy")
         lines = f.readlines()
         proxys = []
         for i in range(0, len(lines)):
