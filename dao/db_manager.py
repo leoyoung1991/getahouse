@@ -14,10 +14,14 @@ class DbManager:
     def __init__(self, config='../conf/house.conf'):
         cf = ConfigParser.ConfigParser()
         cf.read(config)
-        host = cf.get("mysql", "host")
-        username = cf.get("mysql", "username")
-        password = cf.get("mysql", "password")
-        database = cf.get("mysql", "database")
+        host = 'localhost'
+        username = 'root'
+        password = 'root'
+        database = 'house'
+        # host = cf.get("mysql", "host")
+        # username = cf.get("mysql", "username")
+        # password = cf.get("mysql", "password")
+        # database = cf.get("mysql", "database")
 
         connKwargs = {'host': host, 'user': username, 'passwd': password,
                       'db': database, 'charset': "utf8"}
