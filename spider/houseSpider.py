@@ -62,10 +62,10 @@ class Community:
                 values = []
                 watching_values = []
                 # 一次插入多条记录
-                sql = "insert into house_source (`link_house_source_id`,`url`,`title_discribe`,`community_name`,`link_community_id`,`home_plan_structure`,`building_size`,`orientation`,`decorate_situation`,`elevator`,`floor_situation`,`floor_total`,`building_year`,`building_type`,`address`,`publish_time`,`price`,`total_price`,`real_size`,`building_structure`,`fitment_situation`,`stairway_rate`,`heating_way`,`property_right`,`createDay`)" \
+                sql = "insert into house_source (`link_house_source_id`,`url`,`title_discribe`,`community_name`,`link_community_id`,`home_plan_structure`,`building_size`,`orientation`,`decorate_situation`,`elevator`,`floor_situation`,`floor_total`,`building_year`,`building_type`,`address`,`publish_time`,`price`,`total_price`,`real_size`,`building_structure`,`fitment_situation`,`stairway_rate`,`heating_way`,`property_right`,`create_day`)" \
                       "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
-                watching_sql = "insert into house_source_watching (`link_house_source_id`, `watching_num`, `real_see_num`,`createDay`) values (%s,%s,%s,%s) "
+                watching_sql = "insert into house_source_watching (`link_house_source_id`, `watching_num`, `real_see_num`,`create_day`) values (%s,%s,%s,%s) "
 
                 for play in lst.find_all('li', {'class': 'clear'}):
                     house_info = ''
